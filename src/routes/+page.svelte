@@ -48,7 +48,7 @@
 <div class="container">
     
     <div class="text-center mb-5">
-        <h1 class="display-4" style="color: var(--brand-color);">Markdown Meta Tag Tester</h1>
+        <h1 class="display-4" style="color: var(--brand-color);">URL Encoder - Decoder</h1>
         <p class="lead">Professional URL encoding and decoding tool.</p>
     </div>
 
