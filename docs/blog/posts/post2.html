@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>AxelBase – URL Encoder - Decoder</title>
+        <link rel="icon" href="../../AxelLab-Logo.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+		<link href="../../_app/immutable/assets/0.BsZ2ABhB.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/5.BdgQ_nSX.css" rel="stylesheet">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.DYt-lw9D.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/BDH9sWCO.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/BNExFjTs.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/BW_lLanF.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Ba03xcGl.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.pWhe3VyF.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/DqiHn7L1.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Cn_zYDD-.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/DFzTR2D2.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/0.CZUY-QMV.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/GIYq9FUk.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/BHFKFyJ5.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/ByWjJamm.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/DwNmS6BL.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/5.BvyiXt9k.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/C5iu_Ixj.js"><!--1apmzc4--><meta name="description" content="The definitive guide to when and why you must use encodeURIComponent instead of encodeURI — with real examples that break when you choose wrong."/> <meta property="og:title" content="encodeURIComponent vs encodeURI: Never Mix Them Up Again"/> <meta property="og:description" content="The definitive guide to when and why you must use encodeURIComponent instead of encodeURI."/> <meta property="og:url" content="../../blog/posts/post2"/> <meta property="og:type" content="article"/> <meta name="twitter:card" content="summary_large_image"/><!----><title>encodeURIComponent vs encodeURI: Never Mix Them Up Again</title>
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents"><!--[--><!--[--><!----><header class="custom-navbar"><div class="nav-container"><div class="nav-left"><a href="../../" class="brand-group" aria-label="Home"><img src="../../AxelLab-Logo.ico" alt="Logo" class="navbar-brand-logo"/> <span class="navbar-brand-text">AxelBase</span></a> <div class="bmac-wrapper"><button class="bmac-button"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.35,22.2L12,22A10,10,0,0,1,2,12V10A2,2,0,0,1,4,8H7.2A5.13,5.13,0,0,1,12,3A5.13,5.13,0,0,1,16.8,8H20A2,2,0,0,1,22,10V12A10,10,0,0,1,12.35,22.2M4,10V12A8,8,0,0,0,12,20A8,8,0,0,0,20,12V10H16.8A5.11,5.11,0,0,1,12.5,5.12A5.15,5.15,0,0,1,7.2,10H4Z"></path></svg> <span>Buy me a coffee</span></button> <!--[!--><!--]--></div></div> <ul class="nav-links"><li><a class="nav-link" href="../../">Home</a></li> <li><a class="nav-link" href="../../#about">About</a></li> <li><a class="nav-link" href="../../#how-to">How to use</a></li> <li><a class="nav-link" href="../../#faq">FAQ</a></li> <li><a class="nav-link" href="../../blog">Blog</a></li></ul></div></header> <main><!--[--><!----><div class="container fade-in post-layout svelte-1apmzc4"><div class="breadcrumbs svelte-1apmzc4"><a href="../../blog" class="svelte-1apmzc4">Blog</a> <span>/</span> <p class="svelte-1apmzc4">encodeURIComponent vs encodeURI</p></div> <article class="prose svelte-1apmzc4"><h1 class="svelte-1apmzc4">encodeURIComponent vs encodeURI: Never Mix Them Up Again</h1> <p class="post-meta svelte-1apmzc4">Published: November 20, 2025</p> <p class="svelte-1apmzc4">These two functions look almost identical — yet choosing the wrong one is the #1 cause of broken query strings and 400 Bad Request errors.</p> <h2 class="svelte-1apmzc4">The Critical Difference</h2> <p class="svelte-1apmzc4">encodeURI() assumes the string is a full URL and leaves slashes, colons, and question marks intact.  
+    encodeURIComponent() assumes the string is a single component (like a query value) and encodes everything that could break parsing — including &amp;, ?, =, and /.</p> <h2 class="svelte-1apmzc4">Real Example That Breaks</h2> <p class="svelte-1apmzc4">Search term: “cats &amp; dogs”  
+    Correct: ?q=encodeURIComponent("cats &amp; dogs") → ?q=cats%20%26%20dogs  
+    Wrong: ?q=encodeURI("cats &amp; dogs") → ?q=cats%20&amp;%20dogs → splits into q=cats and dogs= (empty)</p> <h2 class="svelte-1apmzc4">Quick Rule of Thumb</h2> <ul><li>Use encodeURI() only when building a complete URL from safe parts</li> <li>Use encodeURIComponent() for every query parameter value and path segment</li> <li>When in doubt → encodeURIComponent()</li></ul> <h2 class="svelte-1apmzc4">FAQ</h2> <details class="svelte-1apmzc4"><summary class="svelte-1apmzc4">Why does encodeURI exist at all?</summary> <p class="svelte-1apmzc4">For safely encoding entire URLs when you already know the structure is valid (rare in practice).</p></details> <details class="svelte-1apmzc4"><summary class="svelte-1apmzc4">Does this tool use the correct one?</summary> <p class="svelte-1apmzc4">Yes — it always uses encodeURIComponent() + proper handling of reserved chars for maximum safety.</p></details> <p class="italic-note svelte-1apmzc4">One wrong function call = hours of debugging. Bookmark this page.</p></article></div><!----><!--]--></main> <footer><div class="container"><p class="mb-2">© 2025 AxelBase URL Encoder – Decoder</p> <div><a href="../../privacy">Privacy</a> | <a href="../../terms">Terms</a></div></div></footer><!----><!--]--> <!--[!--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_qn9mc3 = {
+						base: new URL("../..", location).pathname.slice(0, -1),
+						assets: "/url-encode-decode"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../../_app/immutable/entry/start.DYt-lw9D.js"),
+						import("../../_app/immutable/entry/app.pWhe3VyF.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 5],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+    </body>
+</html>
